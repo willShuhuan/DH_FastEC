@@ -47,21 +47,26 @@ public class SignInDelegate extends LatteDelegate {
     @OnClick(R2.id.btn_sign_in)
     void onClickSignIn() {
         if (checkForm()) {
-            String url = Constants.BASE_IP + Constants.Action_Login;
-            RestClient.bulider()
-                    .url(url)
-                    .params("userphone", mEmail.getText().toString())
-                    .params("userpassword", mPassword.getText().toString())
-                    .success(new ISuccess() {
-                        @Override
-                        public void onSuccess(String response) {
-                            LatteLogger.json("USER_PROFILE", response);
-                            SignHandler.onSignIn(response, mISignListener);
-                        }
-                    })
-                    .build()
-                    .post();
+            //String url = Constants.BASE_IP + Constants.Action_Login;
+            //RestClient.bulider()
+            //        .url(url)
+            //        .params("userphone", mEmail.getText().toString())
+            //        .params("userpassword", mPassword.getText().toString())
+            //        .success(new ISuccess() {
+            //            @Override
+            //            public void onSuccess(String response) {
+            //                LatteLogger.json("USER_PROFILE", response);
+            //                SignHandler.onSignIn(response, mISignListener);
+            //            }
+            //        })
+            //        .build()
+            //        .post();
+            if (mEmail.getText().toString().equals("18510430345")&&mPassword.getText().toString().equals("123456")){
+                LatteLogger.json("USER_PROFILE", "response");
+                SignHandler.onSignIn("response", mISignListener);
+            }
         }
+
     }
 
     @OnClick(R2.id.icon_sign_in_wechat)
